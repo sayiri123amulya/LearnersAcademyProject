@@ -1,0 +1,35 @@
+CREATE TABLE `booking` (
+  `booking_ID` int NOT NULL,
+  `flight_number` varchar(20) NOT NULL,
+  `passenger_name` varchar(20) NOT NULL,
+  `passenger_age` int NOT NULL,
+  `passenger_unique_id` varchar(20) NOT NULL,
+  `passenger_gender` varchar(20) NOT NULL,
+  `seat_number` int NOT NULL,
+  `id` int NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `seq` int NOT NULL,
+  KEY `flight_number` (`flight_number`),
+  CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`flight_number`) REFERENCES `flights` (`flight_number`)
+) 
+
+
+CREATE TABLE `logindetails` (
+  `id` int NOT NULL,
+  `firstname` varchar(20) NOT NULL,
+  `lastname` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+)
+
+CREATE TABLE `flights` (
+  `flight_number` varchar(20) NOT NULL,
+  `flight_name` varchar(20) NOT NULL,
+  `start_source` varchar(20) NOT NULL,
+  `final_destination` varchar(20) NOT NULL,
+  `Date_of_travel` date NOT NULL,
+  `seats_available` int NOT NULL,
+  `id` int NOT NULL,
+  `ticket_price` int NOT NULL,
+  PRIMARY KEY (`flight_number`)
+)
